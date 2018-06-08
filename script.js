@@ -25,7 +25,7 @@ clear.onclick = function() {
     context.clearRect(0,0,canvas.width,canvas.height)
 }
 download.onclick = function() {
-    var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+    var url = canvas.toDataURL("image/png")
     var a = document.createElement('a')
     document.body.appendChild(a)
     a.href = url
