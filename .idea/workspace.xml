@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0803b009-4840-480f-8a37-2a7f3f61bc08" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
@@ -18,36 +19,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+            <state relative-caret-position="127">
+              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+              <folding>
+                <element signature="e#358#366#0" />
+                <element signature="e#334#342#0" />
+                <element signature="e#800#808#0" />
+                <element signature="e#869#877#0" />
+                <element signature="e#904#944#0" />
+                <element signature="e#957#997#0" />
+                <element signature="e#1032#1084#0" />
+                <element signature="e#1103#1111#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+            <state relative-caret-position="136">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
               <folding>
                 <element signature="e#187#285#0" />
                 <element signature="e#311#410#0" />
-                <element signature="n#!!block;n#autoSetCanvasSize#0" />
+                <element signature="e#631#801#0" />
+                <element signature="e#528#593#0" />
+                <element signature="e#620#685#0" />
+                <element signature="e#1428#1436#0" />
+                <element signature="e#1502#1548#0" />
+                <element signature="e#1564#1606#0" />
                 <element signature="e#505#536#0" />
-                <element signature="n#!!block;n#setCanvasSize#0;n#!!block;n#autoSetCanvasSize#0" />
                 <element signature="n#!!block;n#drawLine#0" />
+                <element signature="n#!!block;n#drawCircle#0" />
+                <element signature="n#!!block;n#listenToUser#0" />
+                <element signature="e#1316#1332#0" />
                 <element signature="e#1375#1672#0" />
                 <element signature="e#1534#1605#0" />
                 <element signature="e#1611#1662#0" />
@@ -55,6 +73,8 @@
                 <element signature="e#1573#1644#0" />
                 <element signature="e#1650#1740#0" />
                 <element signature="e#1786#1812#0" />
+                <element signature="e#1866#1903#0" />
+                <element signature="e#1336#2117#0" />
                 <element signature="e#1296#1553#0" />
                 <element signature="e#1435#1498#0" />
                 <element signature="e#1504#1547#0" />
@@ -87,12 +107,17 @@
       <find>ToMouse</find>
       <find>brush</find>
       <find>Style</find>
+      <find>lineW</find>
+      <find>canvas.W</find>
       <find>eraser</find>
+      <find>box</find>
+      <find>tra</find>
+      <find>fillSt</find>
     </findStrings>
     <replaceStrings>
       <replace>ToUser</replace>
-      <replace>pen</replace>
       <replace>using</replace>
+      <replace>pen</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -102,8 +127,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/script.js" />
       </list>
     </option>
   </component>
@@ -117,7 +142,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="623" />
+    <option name="x" value="540" />
+    <option name="y" value="37" />
     <option name="width" value="776" />
     <option name="height" value="766" />
   </component>
@@ -176,15 +202,15 @@
       <option name="presentableId" value="Default" />
       <updated>1528282433076</updated>
       <workItem from="1528282434577" duration="138000" />
-      <workItem from="1528282660632" duration="23277000" />
+      <workItem from="1528282660632" duration="30642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23415000" />
+    <option name="totallyTimeSpent" value="30780000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="623" y="0" width="776" height="766" extended-state="0" />
+    <frame x="540" y="37" width="776" height="766" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.38472834" />
@@ -222,20 +248,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#358#366#0" />
+            <element signature="e#334#342#0" />
+            <element signature="e#800#808#0" />
+            <element signature="e#869#877#0" />
+            <element signature="e#904#944#0" />
+            <element signature="e#957#997#0" />
+            <element signature="e#1032#1084#0" />
+            <element signature="e#1103#1111#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding>
+            <element signature="e#358#366#0" />
+            <element signature="e#334#342#0" />
+            <element signature="e#800#808#0" />
+            <element signature="e#869#877#0" />
+            <element signature="e#904#944#0" />
+            <element signature="e#957#997#0" />
+            <element signature="e#1032#1084#0" />
+            <element signature="e#1103#1111#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        <state relative-caret-position="136">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding>
             <element signature="e#187#285#0" />
             <element signature="e#311#410#0" />
-            <element signature="n#!!block;n#autoSetCanvasSize#0" />
+            <element signature="e#631#801#0" />
+            <element signature="e#528#593#0" />
+            <element signature="e#620#685#0" />
+            <element signature="e#1428#1436#0" />
+            <element signature="e#1502#1548#0" />
+            <element signature="e#1564#1606#0" />
             <element signature="e#505#536#0" />
-            <element signature="n#!!block;n#setCanvasSize#0;n#!!block;n#autoSetCanvasSize#0" />
             <element signature="n#!!block;n#drawLine#0" />
+            <element signature="n#!!block;n#drawCircle#0" />
+            <element signature="n#!!block;n#listenToUser#0" />
+            <element signature="e#1316#1332#0" />
             <element signature="e#1375#1672#0" />
             <element signature="e#1534#1605#0" />
             <element signature="e#1611#1662#0" />
@@ -243,6 +310,8 @@
             <element signature="e#1573#1644#0" />
             <element signature="e#1650#1740#0" />
             <element signature="e#1786#1812#0" />
+            <element signature="e#1866#1903#0" />
+            <element signature="e#1336#2117#0" />
             <element signature="e#1296#1553#0" />
             <element signature="e#1435#1498#0" />
             <element signature="e#1504#1547#0" />
@@ -252,20 +321,6 @@
             <element signature="e#1965#1991#0" />
             <element signature="e#2046#2075#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
         </state>
       </provider>
     </entry>

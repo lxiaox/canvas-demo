@@ -1,7 +1,14 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d')
+var lineWidth = 2
+var circleRadius = 1
+
 autoSetCanvasSize(canvas)
 listenToUser(canvas)
+
+context.fillStyle = 'white'
+context.fillRect(0,0,canvas.width,canvas.height)
+context.fillStyle = 'black'
 
 var eraserEnabled = false
 eraser.onclick = function(){
@@ -14,10 +21,33 @@ pen.onclick = function() {
     pen.classList.add('active')
     eraser.classList.remove('active')
 }
+clear.onclick = function() {
+    context.clearRect(0,0,canvas.width,canvas.height)
+}
+download.onclick = function() {
+    var url = canvas.toDataURL("image/png")
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'mypainting'
+    a.target = '_blank'
+    a.click()
 
+
+}
+
+black.onclick = function(){
+    context.fillStyle = 'black'
+    context.strokeStyle = 'black'
+    black.classList.add('active')
+    red.classList.remove('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
 red.onclick = function(){
     context.fillStyle = 'red'
     context.strokeStyle = 'red'
+    black.classList.remove('active')
     red.classList.add('active')
     green.classList.remove('active')
     blue.classList.remove('active')
@@ -25,6 +55,7 @@ red.onclick = function(){
 green.onclick = function(){
     context.fillStyle = 'green'
     context.strokeStyle = 'green'
+    black.classList.remove('active')
     red.classList.remove('active')
     green.classList.add('active')
     blue.classList.remove('active')
@@ -32,12 +63,34 @@ green.onclick = function(){
 blue.onclick = function(){
     context.fillStyle = 'blue'
     context.strokeStyle = 'blue'
+    black.classList.remove('active')
     red.classList.remove('active')
     green.classList.remove('active')
     blue.classList.add('active')
 }
 
+thin.onclick = function () {
+    lineWidth = 2
+    circleRadius = 1
+    thin.classList.add('active')
+    thick.classList.remove('active')
+    overthick.classList.remove('active')
 
+}
+thick.onclick = function () {
+    lineWidth = 4
+    circleRadius = 2
+    thin.classList.remove('active')
+    thick.classList.add('active')
+    overthick.classList.remove('active')
+}
+overthick.onclick = function () {
+    lineWidth = 6
+    circleRadius = 3
+    thin.classList.remove('active')
+    thick.classList.remove('active')
+    overthick.classList.add('active')
+}
 
 //************************************************??
 function autoSetCanvasSize(canvas) {
@@ -54,7 +107,7 @@ function autoSetCanvasSize(canvas) {
 }
 function drawLine(x1,y1,x2,y2){
     context.beginPath();
-    context.lineWidth = 2
+    context.lineWidth = lineWidth
     context.beginPath()
     context.moveTo(x1,y1)
     context.lineTo(x2,y2)
@@ -109,7 +162,7 @@ function listenToUser(canvas) {
             if (eraserEnabled) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
-                drawCircle(x, y, 1)
+                drawCircle(x, y, circleRadius)
             }
         }
         canvas.onmousemove = function (msg) {
