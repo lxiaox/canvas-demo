@@ -29,7 +29,7 @@ download.onclick = function() {
     var a = document.createElement('a')
     document.body.appendChild(a)
     a.href = url
-    a.download = 'mypainting.png'
+    a.download = 'mypainting'
     a.target = '_blank'
     a.click()
 
