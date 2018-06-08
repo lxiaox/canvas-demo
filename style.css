@@ -7,13 +7,9 @@ body{overflow: hidden;}
 .actions{position: fixed;left: 0;top: 0;padding: 20px;}
 .actions svg{height: 1.5em;width: 1.5em;margin:0 10px;transition: all 0.3s;}
 .actions svg.active{fill:red;transform: scale(1.2);}
-.actions svg.clear:focus,
-.actions svg.clear:hover
-{fill:red;}
+.actions svg.clear:active {fill:red;}
 .actions svg.download{fill:#333}
-.actions svg.download:focus,
-.actions svg.download:hover
-{fill:red;}
+.actions svg.download:active {fill:red;}
 
 .colors{
     position: fixed;
@@ -43,6 +39,7 @@ body{overflow: hidden;}
 .sizes li{
     margin:20px 0;
     transition: all 0.3s;
+    border-radius: 1px;
 }
 .sizes .thin{
     width:20px;
@@ -51,11 +48,12 @@ body{overflow: hidden;}
 .sizes .thick{
     width:20px;
     border-top: 4px solid black;
+
 }
 .sizes .overthick{
     width:20px;
     border-top: 6px solid black;
-}
+x}
 .sizes .active{
     box-shadow:  0 0 2px 2px #999;
 }
