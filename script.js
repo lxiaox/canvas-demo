@@ -25,19 +25,17 @@ clear.onclick = function() {
     context.clearRect(0,0,canvas.width,canvas.height)
 }
 download.onclick = function() {
-    var url = canvas.toDataURL("image/png")
+    var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
     var a = document.createElement('a')
     document.body.appendChild(a)
     a.href = url
-    a.download = 'mypainting'
+    a.download = 'mypainting.png'
     a.target = '_blank'
     a.click()
 
 
 }
 
-var size = document.getElementsByClassName('size')
-console.log(size)
 black.onclick = function(){
     context.fillStyle = 'black'
     context.strokeStyle = 'black'
