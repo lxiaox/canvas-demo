@@ -133,7 +133,7 @@ function listenToUser(canvas) {
             if (eraserEnabled) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
-                drawCircle(x, y, 1)
+                drawCircle(x, y, circleRadius)
             }
         }
         canvas.ontouchmove = function (msg) {
