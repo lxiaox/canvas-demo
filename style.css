@@ -2,14 +2,18 @@
 *{padding: 0;margin:0;}
 ul,ol{list-style: none}
 body{overflow: hidden;}
-#canvas{display: block;}
-#actions{position: fixed;left: 0;top: 0;padding: 20px;}
+.canvas{display: block;}
+
+.actions{position: fixed;left: 0;top: 0;padding: 20px;}
 .actions svg{height: 1.5em;width: 1.5em;margin:0 10px;transition: all 0.3s;}
 .actions svg.active{fill:red;transform: scale(1.2);}
-.actions .clear:active{fill:red}
-.actions .download{fill:#222}
-.actions .download:active{fill:red}
-
+.actions svg.clear:focus,
+.actions svg.clear:hover
+{fill:red;}
+.actions svg.download{fill:#333}
+.actions svg.download:focus,
+.actions svg.download:hover
+{fill:red;}
 
 .colors{
     position: fixed;
@@ -54,6 +58,18 @@ body{overflow: hidden;}
 }
 .sizes .active{
     box-shadow:  0 0 2px 2px #999;
+}
+.sizes.colorBlack li{
+    border-color: black;
+}
+.sizes.colorRed li{
+    border-color: red;
+}
+.sizes.colorGreen li{
+    border-color: green;
+}
+.sizes.colorBlue li{
+    border-color: blue;
 }
 
 

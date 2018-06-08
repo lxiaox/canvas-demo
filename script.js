@@ -36,6 +36,8 @@ download.onclick = function() {
 
 }
 
+var size = document.getElementsByClassName('size')
+console.log(size)
 black.onclick = function(){
     context.fillStyle = 'black'
     context.strokeStyle = 'black'
@@ -43,6 +45,10 @@ black.onclick = function(){
     red.classList.remove('active')
     green.classList.remove('active')
     blue.classList.remove('active')
+    sizes.classList.add('colorBlack')
+    sizes.classList.remove('colorRed')
+    sizes.classList.remove('colorGreen')
+    sizes.classList.remove('colorBlue')
 }
 red.onclick = function(){
     context.fillStyle = 'red'
@@ -51,6 +57,11 @@ red.onclick = function(){
     red.classList.add('active')
     green.classList.remove('active')
     blue.classList.remove('active')
+    sizes.classList.remove('colorBlack')
+    sizes.classList.add('colorRed')
+    sizes.classList.remove('colorGreen')
+    sizes.classList.remove('colorBlue')
+
 }
 green.onclick = function(){
     context.fillStyle = 'green'
@@ -59,6 +70,10 @@ green.onclick = function(){
     red.classList.remove('active')
     green.classList.add('active')
     blue.classList.remove('active')
+    sizes.classList.remove('colorBlack')
+    sizes.classList.remove('colorRed')
+    sizes.classList.add('colorGreen')
+    sizes.classList.remove('colorBlue')
 }
 blue.onclick = function(){
     context.fillStyle = 'blue'
@@ -67,6 +82,10 @@ blue.onclick = function(){
     red.classList.remove('active')
     green.classList.remove('active')
     blue.classList.add('active')
+    sizes.classList.remove('colorBlack')
+    sizes.classList.remove('colorRed')
+    sizes.classList.remove('colorGreen')
+    sizes.classList.add('colorBlue')
 }
 
 thin.onclick = function () {
