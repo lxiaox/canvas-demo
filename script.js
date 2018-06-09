@@ -6,7 +6,7 @@ var circleRadius = 1
 autoSetCanvasSize(canvas)
 listenToUser(canvas)
 
-context.fillStyle = 'white'
+context.fillStyle = 'green'
 context.fillRect(0,0,canvas.width,canvas.height)
 context.fillStyle = 'black'
 
