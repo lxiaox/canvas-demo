@@ -1,74 +1,121 @@
-.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
-*{padding: 0;margin:0;}
-ul,ol{list-style: none}
-body{overflow: hidden;}
-.canvas{display: block;position:fixed;top:0;left:0;}
-
-.actions{position: fixed;left: 0;top: 0;padding: 20px;}
-.actions svg{height: 1.5em;width: 1.5em;margin:0 10px;transition: all 0.3s;}
-.actions svg.active{fill:red;transform: scale(1.2);}
-.actions svg.clear:active {fill:red;}
-.actions svg.download{fill:#333}
-.actions svg.download:active {fill:red;}
-
-.colors{
-    position: fixed;
-    top:60px;
-    left:28px;
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  cursor: pointer;
 }
-.colors li{
-    display: block;
-    width: 20px;
-    height: 20px;
-    margin: 12px 0;
-    border-radius: 10px;
-    box-shadow:  0 0 2px 2px #999;
-    transition: all 0.3s;
+* {
+  padding: 0;
+  margin: 0;
 }
-.colors li.black{background:black;}
-.colors li.red{background:red;}
-.colors li.green{background:green;}
-.colors li.blue{background:blue;}
-.colors li.active{transform: scale(1.2);}
-
-.sizes{
-    position: fixed;
-    top:10px;
-    right:28px;
+ul,
+ol {
+  list-style: none;
 }
-.sizes li{
-    margin:20px 0;
-    transition: all 0.3s;
-    border-radius: 1px;
+body {
+  overflow: hidden;
 }
-.sizes .thin{
-    width:20px;
-    border-top: 2px solid black;
-}
-.sizes .thick{
-    width:20px;
-    border-top: 4px solid black;
-
-}
-.sizes .overthick{
-    width:20px;
-    border-top: 6px solid black;
-}
-.sizes .active{
-    box-shadow:  0 0 2px 2px #999;
-}
-.sizes.colorBlack li{
-    border-color: black;
-}
-.sizes.colorRed li{
-    border-color: red;
-}
-.sizes.colorGreen li{
-    border-color: green;
-}
-.sizes.colorBlue li{
-    border-color: blue;
+.canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
+.actions {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+}
+.actions svg {
+  height: 1.5em;
+  width: 1.5em;
+  margin: 0 10px;
+  transition: all 0.3s;
+}
+.actions svg.active {
+  fill: red;
+  transform: scale(1.2);
+}
+.actions svg.clear:active {
+  fill: red;
+}
+.actions svg.download {
+  fill: #333;
+}
+.actions svg.download:active {
+  fill: red;
+}
 
+.colors {
+  position: fixed;
+  top: 60px;
+  left: 28px;
+}
+.colors li {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 12px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 2px 2px #999;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.colors li.black {
+  background: black;
+}
+.colors li.red {
+  background: red;
+}
+.colors li.green {
+  background: green;
+}
+.colors li.blue {
+  background: blue;
+}
+.colors li.active {
+  transform: scale(1.2);
+}
 
+.sizes {
+  position: fixed;
+  top: 10px;
+  right: 28px;
+}
+.sizes li {
+  margin: 20px 0;
+  transition: all 0.3s;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.sizes .thin {
+  width: 20px;
+  border-top: 2px solid black;
+}
+.sizes .thick {
+  width: 20px;
+  border-top: 4px solid black;
+}
+.sizes .overthick {
+  width: 20px;
+  border-top: 6px solid black;
+}
+.sizes .active {
+  box-shadow: 0 0 2px 2px #999;
+}
+.sizes.colorBlack li {
+  border-color: black;
+}
+.sizes.colorRed li {
+  border-color: red;
+}
+.sizes.colorGreen li {
+  border-color: green;
+}
+.sizes.colorBlue li {
+  border-color: blue;
+}
