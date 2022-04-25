@@ -105,7 +105,7 @@ overthick.onclick = function () {
   overthick.classList.add('active')
 }
 
-//************************************************??
+// 设置画板宽高
 function autoSetCanvasSize(canvas) {
   setCanvasSize()
   window.onresize = function () {
@@ -119,6 +119,7 @@ function autoSetCanvasSize(canvas) {
     canvas.height = pageHeigth
   }
 }
+// 画线
 function drawLine(x1, y1, x2, y2) {
   context.beginPath()
   context.lineWidth = lineWidth
@@ -128,6 +129,7 @@ function drawLine(x1, y1, x2, y2) {
   context.stroke()
   context.closePath()
 }
+// 画点
 function drawCircle(x, y, radius) {
   context.beginPath()
   context.arc(x, y, radius, 0, Math.PI * 2)
@@ -136,7 +138,7 @@ function drawCircle(x, y, radius) {
 function listenToUser(canvas) {
   var using = false
   var lastPoint = { x: undefined, y: undefined }
-  //特性检测
+  // 手机触屏
   if (document.body.ontouchstart !== undefined) {
     canvas.ontouchstart = function (msg) {
       using = true
@@ -160,12 +162,12 @@ function listenToUser(canvas) {
         drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
       }
       lastPoint = newPoint
-      /*******KeyPoint*********/
     }
     canvas.ontouchend = function () {
       using = false
     }
   } else {
+    // 鼠标点击
     canvas.onmousedown = function (msg) {
       using = true
       var x = msg.clientX
@@ -188,7 +190,6 @@ function listenToUser(canvas) {
         drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
       }
       lastPoint = newPoint
-      /*******KeyPoint*********/
     }
     canvas.onmouseup = function () {
       using = false
