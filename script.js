@@ -12,22 +12,19 @@ context.fillStyle = '#fff'
 context.fillRect(0, 0, canvas.width, canvas.height)
 
 // 初始化
-context.fillStyle = colorInput.value
-context.strokeStyle = colorInput.value
-context.lineWidth = lineWidthInput.value
-var circleRadius = lineWidthInput.value / 2
+let penSet = {
+  color: colorInput.value,
+  width: lineWidthInput.value,
+}
 context.lineCap = 'round' // 设置线条末端为圆角，可以使线条顺滑
 
-// 颜色
+// 颜色改变
 colorInput.onchange = function ({ target: { value } }) {
-  context.fillStyle = value
-  context.strokeStyle = value
+  penSet.color = value
 }
-// 粗细
+// 粗细改变
 lineWidthInput.onchange = function ({ target: { value } }) {
-  console.log(1)
-  context.lineWidth = value
-  circleRadius = value / 2
+  penSet.width = value
 }
 
 // 画笔
@@ -72,8 +69,9 @@ function autoSetCanvasSize(canvas) {
   }
 }
 // 画线
-function drawLine(x1, y1, x2, y2) {
-  context.beginPath()
+function drawLine(x1, y1, x2, y2, penSet) {
+  context.strokeStyle = penSet.color
+  context.lineWidth = penSet.width
   context.beginPath()
   context.moveTo(x1, y1)
   context.lineTo(x2, y2)
@@ -81,9 +79,10 @@ function drawLine(x1, y1, x2, y2) {
   context.closePath()
 }
 // 画点
-function drawCircle(x, y, radius) {
+function drawCircle(x, y, penSet) {
+  context.fillStyle = penSet.color
   context.beginPath()
-  context.arc(x, y, radius, 0, Math.PI * 2)
+  context.arc(x, y, penSet.width / 2, 0, Math.PI * 2)
   context.fill()
 }
 function listenToUser(canvas) {
@@ -99,7 +98,7 @@ function listenToUser(canvas) {
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
       } else {
-        drawCircle(x, y, circleRadius)
+        drawCircle(x, y, penSet)
       }
     }
     canvas.ontouchmove = function (event) {
@@ -110,7 +109,7 @@ function listenToUser(canvas) {
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
       } else {
-        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y, penSet)
       }
       lastPoint = newPoint
     }
@@ -128,7 +127,7 @@ function listenToUser(canvas) {
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
       } else {
-        drawCircle(x, y, circleRadius)
+        drawCircle(x, y, penSet)
       }
     }
     canvas.onmousemove = function (event) {
@@ -140,7 +139,7 @@ function listenToUser(canvas) {
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
       } else {
-        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y, penSet)
       }
       lastPoint = newPoint
     }
