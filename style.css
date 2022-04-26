@@ -9,6 +9,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 ul,
 ol {
@@ -16,13 +17,16 @@ ol {
 }
 body {
   overflow: hidden;
+  user-select: none;   /* svg图标间的空格被选中会有蓝色 */
 }
+
 .canvas {
   display: block;
   position: fixed;
   top: 0;
   left: 0;
 }
+
 
 .actions {
   position: fixed;
@@ -35,87 +39,39 @@ body {
   width: 1.5em;
   margin: 0 10px;
   transition: all 0.3s;
+  fill: #555;
 }
-.actions svg.active {
-  fill: red;
+.actions svg.active{
+  fill: #ebb17a;
+}
+.actions svg:hover {
+  fill: #ebb17a;
   transform: scale(1.2);
 }
-.actions svg.clear:active {
-  fill: red;
-}
-.actions svg.download {
-  fill: #333;
-}
-.actions svg.download:active {
-  fill: red;
-}
 
-.colors {
+.pen-style{
   position: fixed;
   top: 60px;
   left: 28px;
+  color: #555;
+
 }
-.colors li {
-  display: block;
-  width: 20px;
-  height: 20px;
-  margin: 12px 0;
-  border-radius: 10px;
-  box-shadow: 0 0 2px 2px #999;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-.colors li.black {
-  background: black;
-}
-.colors li.red {
-  background: red;
-}
-.colors li.green {
-  background: green;
-}
-.colors li.blue {
-  background: blue;
-}
-.colors li.active {
-  transform: scale(1.2);
+.color-input{
+  background-color: #fff;
+  border-radius: 2px;
+  border-color: #555;
+  margin: 10px 0 0 5px;
 }
 
-.sizes {
-  position: fixed;
-  top: 10px;
-  right: 28px;
+.line-width-wrapper{
+  margin-top: 20px;
+
 }
-.sizes li {
-  margin: 20px 0;
-  transition: all 0.3s;
-  border-radius: 3px;
+.line-width-input{
   cursor: pointer;
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 70px;
 }
-.sizes .thin {
-  width: 20px;
-  border-top: 2px solid black;
-}
-.sizes .thick {
-  width: 20px;
-  border-top: 4px solid black;
-}
-.sizes .overthick {
-  width: 20px;
-  border-top: 6px solid black;
-}
-.sizes .active {
-  box-shadow: 0 0 2px 2px #999;
-}
-.sizes.colorBlack li {
-  border-color: black;
-}
-.sizes.colorRed li {
-  border-color: red;
-}
-.sizes.colorGreen li {
-  border-color: green;
-}
-.sizes.colorBlue li {
-  border-color: blue;
-}
+
+
