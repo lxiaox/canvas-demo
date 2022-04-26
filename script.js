@@ -141,7 +141,7 @@ function listenToUser(canvas) {
         drawCircle(x, y, penSet)
       }
     }
-    canvas.onmousemove = function (event) {
+    window.onmousemove = function (event) {
       if (event.button !== 0) return
       if (!using) return
       var x = event.clientX
