@@ -1,29 +1,53 @@
 var canvas = document.getElementById('canvas')
 var context = canvas.getContext('2d')
-var lineWidth = 2
-var circleRadius = 1
+
+var colorInput = document.getElementById('color-input')
+var lineWidthInput = document.getElementById('line-width-input')
 
 autoSetCanvasSize(canvas)
 listenToUser(canvas)
 
-context.fillStyle = 'white'
+// 画一个白底，优化下载图片的效果
+context.fillStyle = '#fff'
 context.fillRect(0, 0, canvas.width, canvas.height)
-context.fillStyle = 'black'
 
+// 初始化
+context.fillStyle = colorInput.value
+context.strokeStyle = colorInput.value
+context.lineWidth = lineWidthInput.value
+var circleRadius = lineWidthInput.value / 2
+context.lineCap = 'round' // 设置线条末端为圆角，可以使线条顺滑
+
+// 颜色
+colorInput.onchange = function ({ target: { value } }) {
+  context.fillStyle = value
+  context.strokeStyle = value
+}
+// 粗细
+lineWidthInput.onchange = function ({ target: { value } }) {
+  console.log(1)
+  context.lineWidth = value
+  circleRadius = value / 2
+}
+
+// 画笔
+pen.onclick = function () {
+  eraserEnabled = false
+  pen.classList.add('active')
+  eraser.classList.remove('active')
+}
+// 橡皮擦
 var eraserEnabled = false
 eraser.onclick = function () {
   eraserEnabled = true
   eraser.classList.add('active')
   pen.classList.remove('active')
 }
-pen.onclick = function () {
-  eraserEnabled = false
-  pen.classList.add('active')
-  eraser.classList.remove('active')
-}
+// 清除
 clear.onclick = function () {
   context.clearRect(0, 0, canvas.width, canvas.height)
 }
+// 下载
 download.onclick = function () {
   var url = canvas.toDataURL('image/png')
   var a = document.createElement('a')
@@ -34,77 +58,6 @@ download.onclick = function () {
   a.click()
 }
 
-black.onclick = function () {
-  context.fillStyle = 'black'
-  context.strokeStyle = 'black'
-  black.classList.add('active')
-  red.classList.remove('active')
-  green.classList.remove('active')
-  blue.classList.remove('active')
-  sizes.classList.add('colorBlack')
-  sizes.classList.remove('colorRed')
-  sizes.classList.remove('colorGreen')
-  sizes.classList.remove('colorBlue')
-}
-red.onclick = function () {
-  context.fillStyle = 'red'
-  context.strokeStyle = 'red'
-  black.classList.remove('active')
-  red.classList.add('active')
-  green.classList.remove('active')
-  blue.classList.remove('active')
-  sizes.classList.remove('colorBlack')
-  sizes.classList.add('colorRed')
-  sizes.classList.remove('colorGreen')
-  sizes.classList.remove('colorBlue')
-}
-green.onclick = function () {
-  context.fillStyle = 'green'
-  context.strokeStyle = 'green'
-  black.classList.remove('active')
-  red.classList.remove('active')
-  green.classList.add('active')
-  blue.classList.remove('active')
-  sizes.classList.remove('colorBlack')
-  sizes.classList.remove('colorRed')
-  sizes.classList.add('colorGreen')
-  sizes.classList.remove('colorBlue')
-}
-blue.onclick = function () {
-  context.fillStyle = 'blue'
-  context.strokeStyle = 'blue'
-  black.classList.remove('active')
-  red.classList.remove('active')
-  green.classList.remove('active')
-  blue.classList.add('active')
-  sizes.classList.remove('colorBlack')
-  sizes.classList.remove('colorRed')
-  sizes.classList.remove('colorGreen')
-  sizes.classList.add('colorBlue')
-}
-
-thin.onclick = function () {
-  lineWidth = 2
-  circleRadius = 1
-  thin.classList.add('active')
-  thick.classList.remove('active')
-  overthick.classList.remove('active')
-}
-thick.onclick = function () {
-  lineWidth = 4
-  circleRadius = 2
-  thin.classList.remove('active')
-  thick.classList.add('active')
-  overthick.classList.remove('active')
-}
-overthick.onclick = function () {
-  lineWidth = 6
-  circleRadius = 3
-  thin.classList.remove('active')
-  thick.classList.remove('active')
-  overthick.classList.add('active')
-}
-
 // 设置画板宽高
 function autoSetCanvasSize(canvas) {
   setCanvasSize()
@@ -112,7 +65,6 @@ function autoSetCanvasSize(canvas) {
     setCanvasSize()
   }
   function setCanvasSize() {
-    //the same code
     var pageWidth = document.documentElement.clientWidth
     var pageHeigth = document.documentElement.clientHeight
     canvas.width = pageWidth
@@ -122,7 +74,6 @@ function autoSetCanvasSize(canvas) {
 // 画线
 function drawLine(x1, y1, x2, y2) {
   context.beginPath()
-  context.lineWidth = lineWidth
   context.beginPath()
   context.moveTo(x1, y1)
   context.lineTo(x2, y2)
@@ -140,10 +91,10 @@ function listenToUser(canvas) {
   var lastPoint = { x: undefined, y: undefined }
   // 手机触屏
   if (document.body.ontouchstart !== undefined) {
-    canvas.ontouchstart = function (msg) {
+    canvas.ontouchstart = function (event) {
       using = true
-      var x = msg.touches[0].clientX
-      var y = msg.touches[0].clientY
+      var x = event.touches[0].clientX
+      var y = event.touches[0].clientY
       lastPoint = { x: x, y: y }
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
@@ -151,10 +102,10 @@ function listenToUser(canvas) {
         drawCircle(x, y, circleRadius)
       }
     }
-    canvas.ontouchmove = function (msg) {
+    canvas.ontouchmove = function (event) {
       if (!using) return
-      var x = msg.touches[0].clientX
-      var y = msg.touches[0].clientY
+      var x = event.touches[0].clientX
+      var y = event.touches[0].clientY
       var newPoint = { x: x, y: y }
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
@@ -168,10 +119,11 @@ function listenToUser(canvas) {
     }
   } else {
     // 鼠标点击
-    canvas.onmousedown = function (msg) {
+    canvas.onmousedown = function (event) {
+      if (event.button !== 0) return
       using = true
-      var x = msg.clientX
-      var y = msg.clientY
+      var x = event.clientX
+      var y = event.clientY
       lastPoint = { x: x, y: y }
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
@@ -179,10 +131,11 @@ function listenToUser(canvas) {
         drawCircle(x, y, circleRadius)
       }
     }
-    canvas.onmousemove = function (msg) {
+    canvas.onmousemove = function (event) {
+      if (event.button !== 0) return
       if (!using) return
-      var x = msg.clientX
-      var y = msg.clientY
+      var x = event.clientX
+      var y = event.clientY
       var newPoint = { x: x, y: y }
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
