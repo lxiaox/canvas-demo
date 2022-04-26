@@ -122,7 +122,7 @@ function listenToUser(canvas) {
       }
       lastPoint = newPoint
     }
-    canvas.ontouchend = function () {
+    window.ontouchend = function () {
       using = false
     }
   } else {
@@ -158,7 +158,11 @@ function listenToUser(canvas) {
       }
       lastPoint = newPoint
     }
-    canvas.onmouseup = function () {
+    // canvas.onmouseup = function () {
+    //   using = false
+    // }
+    // 使用canvas监听mouseup的问题：按下鼠标开始画线，光标在离开窗口或canvas之后松开鼠标，无法监听到，导致光标回到窗口没有按下鼠标也会画线。所以改用window
+    window.onmouseup = function () {
       using = false
     }
   }
