@@ -28,22 +28,23 @@
             <use xlink:href="#icon-download"></use>
         </svg>
     </div>
-    <ul class="colors">
-        <li id="black" class="black active"></li>
-        <li id="red" class="red"></li>
-        <li id="green" class="green"></li>
-        <li id="blue" class="blue"></li>
-    </ul>
-    <ul id="sizes" class="sizes colorBlack">
-        <li id="thin" class="size thin active"></li>
-        <li id="thick" class="size thick"></li>
-        <li id="overthick" class="size overthick"></li>
-    </ul>
+    <div class="pen-style">
+        <div class="color-input-wrapper">
+            <span>颜色</span>
+            <input id="color-input" class="color-input" type="color" value="#ebb17a">
+        </div>
+        <div class="line-width-wrapper">
+            <span>粗细</span>
+            <input id="line-width-input" class="line-width-input" type="range" value="20" min="2" max="100" step="2">
+        </div>
+    </div>
 
-
-
+    </script>
     <script type="text/javascript" src="./script.js"></script>
-    <script src="//at.alicdn.com/t/font_699087_mu3nk3ib9u2tke29.js"></script>
+    <!-- symbol方式引入iconfont -->
+    <!-- <script src="//at.alicdn.com/t/font_699087_nj525o9ss8.js"></script> -->
+    <!-- 改为复制js文件内容到本地使用 -->
+    <script src="./iconfont.js"></script>
 </body>
 
 </html>
