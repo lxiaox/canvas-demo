@@ -14,28 +14,31 @@
 
 <body>
     <canvas id="canvas" class="canvas"></canvas>
-    <div id="actions" class="actions">
-        <svg class="icon active" id="pen">
-            <use xlink:href="#icon-pen"></use>
-        </svg>
-        <svg class="icon" id="eraser">
-            <use xlink:href="#icon-eraser"></use>
-        </svg>
-        <svg class="icon clear" id="clear">
-            <use xlink:href="#icon-clear"></use>
-        </svg>
-        <svg class="icon download" id="download">
-            <use xlink:href="#icon-download"></use>
-        </svg>
-    </div>
-    <div class="pen-style">
-        <div class="color-input-wrapper">
-            <span>颜色</span>
-            <input id="color-input" class="color-input" type="color" value="#ebb17a">
+    <div class="set-wrapper">
+        <div id="actions" class="actions">
+            <svg class="icon active" id="pen">
+                <use xlink:href="#icon-pen"></use>
+            </svg>
+            <svg class="icon" id="eraser">
+                <use xlink:href="#icon-eraser"></use>
+            </svg>
+            <svg class="icon clear" id="clear">
+                <use xlink:href="#icon-clear"></use>
+            </svg>
+            <svg class="icon download" id="download">
+                <use xlink:href="#icon-download"></use>
+            </svg>
         </div>
-        <div class="line-width-wrapper">
-            <span>粗细</span>
-            <input id="line-width-input" class="line-width-input" type="range" value="20" min="2" max="100" step="2">
+        <div class="pen-style">
+            <div class="color-input-wrapper">
+                <span>颜色</span>
+                <input id="color-input" class="color-input" type="color" value="#ebb17a">
+            </div>
+            <div class="line-width-wrapper">
+                <span>粗细</span>
+                <input id="line-width-input" class="line-width-input" type="range" value="20" min="2" max="100"
+                    step="2">
+            </div>
         </div>
     </div>
 
