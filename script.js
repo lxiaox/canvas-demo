@@ -80,10 +80,13 @@ function drawLine(x1, y1, x2, y2, penSet) {
 }
 // 画点
 function drawCircle(x, y, penSet) {
-  context.fillStyle = penSet.color
-  context.beginPath()
-  context.arc(x, y, penSet.width / 2, 0, Math.PI * 2)
-  context.fill()
+  // 选择颜色--再点击页面，先执行画点，再执行color-input的Change函数，画的点仍是之前的颜色，为了解决这个问题，加一个setTimeout延迟执行画点
+  setTimeout(() => {
+    context.fillStyle = penSet.color
+    context.beginPath()
+    context.arc(x, y, penSet.width / 2, 0, Math.PI * 2)
+    context.fill()
+  })
 }
 function listenToUser(canvas) {
   var using = false
