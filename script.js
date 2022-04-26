@@ -17,6 +17,7 @@ let penSet = {
   width: lineWidthInput.value,
 }
 context.lineCap = 'round' // 设置线条末端为圆角，可以使线条顺滑
+context.lineJoin = 'round'
 
 // 颜色改变
 colorInput.onchange = function ({ target: { value } }) {
@@ -99,7 +100,8 @@ function listenToUser(canvas) {
       var y = event.touches[0].clientY
       lastPoint = { x: x, y: y }
       if (eraserEnabled) {
-        context.clearRect(x - 5, y - 5, 10, 10)
+        // context.clearRect(x - 5, y - 5, 10, 10)
+        drawCircle(x, y, { color: '#fff', width: penSet.width })
       } else {
         drawCircle(x, y, penSet)
       }
@@ -110,7 +112,11 @@ function listenToUser(canvas) {
       var y = event.touches[0].clientY
       var newPoint = { x: x, y: y }
       if (eraserEnabled) {
-        context.clearRect(x - 5, y - 5, 10, 10)
+        // context.clearRect(x - 5, y - 5, 10, 10)
+        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y, {
+          color: '#fff',
+          width: penSet.width,
+        })
       } else {
         drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y, penSet)
       }
@@ -128,7 +134,9 @@ function listenToUser(canvas) {
       var y = event.clientY
       lastPoint = { x: x, y: y }
       if (eraserEnabled) {
-        context.clearRect(x - 5, y - 5, 10, 10)
+        // 使用clearRect效果不好，尤其是操作速度快了时会不连续，改为画白色点/线的方式清除。
+        // context.clearRect(x - 5, y - 5, 10, 10)
+        drawCircle(x, y, { color: '#fff', width: penSet.width })
       } else {
         drawCircle(x, y, penSet)
       }
@@ -140,7 +148,11 @@ function listenToUser(canvas) {
       var y = event.clientY
       var newPoint = { x: x, y: y }
       if (eraserEnabled) {
-        context.clearRect(x - 5, y - 5, 10, 10)
+        // context.clearRect(x - 5, y - 5, 10, 10)
+        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y, {
+          color: '#fff',
+          width: penSet.width,
+        })
       } else {
         drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y, penSet)
       }
